@@ -1,3 +1,5 @@
+# don't ignore directories
+!*/
 .DS_Store
 .idea/
 /engery_analysis_app/v1/frontend/node_modules
