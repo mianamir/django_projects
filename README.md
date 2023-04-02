@@ -1,2 +1,2 @@
-## Django Rest Framework Based Projects 
+## Django Rest Framework / ReactJS Based Projects 
 
