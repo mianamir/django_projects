@@ -1,2 +1,2 @@
-# django_projects
-Django Projects 
+# Django Rest Framework Based Projects 
+
