@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  backend:
+    build: v1/backend/projects/
+    container_name: backend-django-container
+    environment:
+      - POSTGRES_NAME=qualitas_energy_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+    depends_on:
+      - postgres
+
+    command: python v1/backend/projects/manage.py runserver 0.0.0.0:8000
+
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+  postgres:
+    image: postgres:13-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  pg-admin:
+    image: dpage/pgadmin4:6
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=mianamirlahore@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=amir19
+      - PGADMIN_LISTEN_PORT=5050
+
+    ports:
+      - "5050:5050"
+
+volumes:
+  data:
